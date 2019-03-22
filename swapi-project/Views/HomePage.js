@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, ListView, ActivityIndicator } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { SearchBar, Button } from 'react-native-elements';
+import CharacterDetailPage from './CharacterDetailPage'
 
 class HomePage extends React.Component {
 
@@ -15,6 +16,10 @@ class HomePage extends React.Component {
         };
       }
       
+      goToDetail(){
+        this.props.navigation.navigate('CharacterDetail');
+      }
+
       updateSearch = search => {
         this.setState({ search });
       };
@@ -66,6 +71,7 @@ class HomePage extends React.Component {
       }
      
       render() {
+        const {navigate} = this.props.navigation;
         if(this.state.isLoading) {
           return(
             <View style={styles.container}>
@@ -78,6 +84,7 @@ class HomePage extends React.Component {
               <Text>SWAPI Explorer</Text>
               <Button title="Previous" onPress={this.decrement}/>
               <Button title="Next" onPress={this.increment}/>
+              <Button title="Detail" onPress={() => navigate('CharacterDetail')}/>
               <SearchBar
                 placeholder="Type your search here"
                 onChangeText={this.updateSearch}
