@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, ListView, ActivityIndicator, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ListView, ActivityIndicator, ScrollView, TouchableHighlight } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { SearchBar, Button } from 'react-native-elements';
 
