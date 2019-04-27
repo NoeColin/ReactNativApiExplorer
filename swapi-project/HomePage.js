@@ -37,7 +37,7 @@ class HomePage extends React.Component {
 
       elementPressed = idClicked => {
 
-         this.setState({elementId : idClicked})
+         this.setState({elementId: idClicked})
          console.log(this.state.elementId)
          this.props.navigation.navigate("CharacterPageDetail",{
            itemId : this.state.elementId
@@ -80,7 +80,7 @@ class HomePage extends React.Component {
       renderRow(item){
         return (
           <View>
-          <TouchableHighlight onPress={() => this.elementPressed} value={this.state.elementId}>
+          <TouchableHighlight onPress={this.elementPressed} value={this.state.elementId}>
           <View>
             <Text>{item.name}</Text>
           </View>
