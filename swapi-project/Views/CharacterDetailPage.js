@@ -18,7 +18,6 @@ class CharacterDetailPage extends React.Component {
   
   
     componentDidMount(){
-    console.log(this.state.id)
       fetch(this.state.url).then((response) => response.json())
         .then((responseJson) => {
           this.setState({name:responseJson.name}) 
@@ -26,6 +25,7 @@ class CharacterDetailPage extends React.Component {
           this.setState({height:responseJson.height})
           this.setState({eyeColor:responseJson.eye_color})
           this.setState({skinColor:responseJson.skin_color})
+          this.setState({birthYear:responseJson.birth_year})
         })
     }
   
@@ -34,10 +34,7 @@ class CharacterDetailPage extends React.Component {
         <View style={styles.container}>
          
           <Text style={styles.category}>
-             name :
-          </Text>
-          <Text style={styles.data}>
-            {this.state.name}
+             {this.state.name}
           </Text>
           <Text style ={styles.data}>
             Hair color: {this.state.hairColor}
@@ -51,6 +48,9 @@ class CharacterDetailPage extends React.Component {
           <Text style ={styles.data}>
              Skin color : {this.state.skinColor}
           </Text>
+          <Text style ={styles.data}>
+              Born in (year) : {this.state.birthYear}
+           </Text>
           
         </View>
       );

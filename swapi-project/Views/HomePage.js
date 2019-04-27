@@ -15,10 +15,6 @@ class HomePage extends React.Component {
           page: 1,
         };
       }
-      
-      goToDetail(){
-        this.props.navigation.navigate('CharacterDetail');
-      }
 
       updateSearch = search => {
         this.setState({ search });
@@ -80,9 +76,8 @@ class HomePage extends React.Component {
           return (
             <View style={styles.container}>
               <Text>SWAPI Explorer</Text>
-              <Button title="Previous" onPress={this.decrement}/>
+             
               <Button title="Next" onPress={this.increment}/>
-              <Button title="Detail" onPress={() => navigate('CharacterDetail')}/>
               <SearchBar
                 placeholder="Type your search here"
                 onChangeText={this.updateSearch}
