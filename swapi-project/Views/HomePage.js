@@ -24,7 +24,6 @@ class HomePage extends React.Component {
         this.setState({ search });
       };
       decrement() {
-          console.log("decrement")
           if(this.state.page == 1){
           } else {
             this.setState({page : this.state.page - 1})
@@ -54,7 +53,6 @@ class HomePage extends React.Component {
           });
       }
       componentDidUpdate() {
-        console.log("page is ",this.state.page)
         
         var url = "https://swapi.co/api/people/?page="+this.state.page
         fetch(url)

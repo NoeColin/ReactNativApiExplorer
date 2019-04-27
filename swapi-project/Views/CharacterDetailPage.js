@@ -19,6 +19,9 @@ class CharacterDetailPage extends React.Component {
         .then((responseJson) => {
           this.setState({name:responseJson.name}) 
           this.setState({hairColor:responseJson.hair_color})
+          this.setState({height:responseJson.height})
+          this.setState({eyeColor:responseJson.eye_color})
+          this.setState({skinColor:responseJson.skin_color})
         })
     }
   
@@ -27,10 +30,22 @@ class CharacterDetailPage extends React.Component {
         <View style={styles.container}>
          
           <Text style={styles.category}>
-           name :
+             name :
           </Text>
           <Text style={styles.data}>
-           {this.state.name} 
+            {this.state.name}
+          </Text>
+          <Text style ={styles.data}>
+            Hair color: {this.state.hairColor}
+          </Text>
+          <Text style ={styles.data}>
+            Height : {this.state.height} cm
+          </Text>
+          <Text style ={styles.data}>
+             Eyes color {this.state.eyeColor}
+          </Text>
+          <Text style ={styles.data}>
+             Skin color : {this.state.skinColor}
           </Text>
           
         </View>
