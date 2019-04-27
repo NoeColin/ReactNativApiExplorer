@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, ListView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ListView, ActivityIndicator, But } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { SearchBar, Button } from 'react-native-elements';
 
@@ -76,6 +76,18 @@ class HomePage extends React.Component {
             console.error(error);
           });
       }
+
+      renderRow(item){
+        return (
+          <View>
+          <TouchableHighlight onPress={() => this.elementPressed()} value={this.state.elementId}>
+          <View>
+            <Text>{item.name}</Text>
+          </View>
+          </TouchableHighlight>
+        </View>
+        )
+      }
      
       render() {
         if(this.state.isLoading) {
@@ -96,15 +108,13 @@ class HomePage extends React.Component {
                 value={this.state.search}
               />
               
+              
+              <ScrollView scrollsToTop={false}>
               <ListView
-                dataSource={this.state.data}
-                onPress={this.elementPressed}
-                value = {this.state.elementId}
-                renderRow={rowData => {
-                return (
-                  <Text>{rowData.name}</Text>
-                )}}
+                  dataSource={this.state.data}
+                  renderRow={this.renderRow}
               />
+              </ScrollView>
               
               
             </View>
