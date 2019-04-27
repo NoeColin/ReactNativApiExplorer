@@ -80,7 +80,7 @@ class HomePage extends React.Component {
       renderRow(item){
         return (
           <View>
-          <TouchableHighlight onPress={() => this.elementPressed()} value={this.state.elementId}>
+          <TouchableHighlight onPress={() => this.elementPressed} value={this.state.elementId}>
           <View>
             <Text>{item.name}</Text>
           </View>
