@@ -12,6 +12,7 @@ class HomePage extends React.Component {
           data: null,
           isLoading: true,
           page: 1,
+          elementId: 0,
         };
       }
       
@@ -33,6 +34,17 @@ class HomePage extends React.Component {
       
           
       }
+
+      elementPressed = idClicked => {
+
+         this.setState({elementId : idClicked})
+         console.log(this.state.elementId)
+         this.props.navigation.navigate("CharacterPageDetail",{
+           itemId : this.state.elementId
+         } )
+         
+      }
+
       componentDidMount(){
         
         var url = "https://swapi.co/api/people/?page="+this.state.page
@@ -86,6 +98,8 @@ class HomePage extends React.Component {
               
               <ListView
                 dataSource={this.state.data}
+                onPress={this.elementPressed}
+                value = {this.state.elementId}
                 renderRow={rowData => {
                 return (
                   <Text>{rowData.name}</Text>
