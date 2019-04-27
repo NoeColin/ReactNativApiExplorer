@@ -4,18 +4,22 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { SearchBar, Button } from 'react-native-elements';
 
 class CharacterDetailPage extends React.Component {
+
+
     constructor(props)
     {
       super(props)
       this.state = {
         name: "",
-        hairColor : ""
+        hairColor : "",
+        url : this.props.navigation.getParam('url', '1')
       }
     }
   
   
     componentDidMount(){
-      fetch('https://swapi.co/api/people/1').then((response) => response.json())
+    console.log(this.state.id)
+      fetch(this.state.url).then((response) => response.json())
         .then((responseJson) => {
           this.setState({name:responseJson.name}) 
           this.setState({hairColor:responseJson.hair_color})

@@ -93,7 +93,7 @@ class HomePage extends React.Component {
                 dataSource={this.state.data}
                 renderRow={rowData => {
                 return (
-                  <Text>{rowData.name}</Text>
+                  <Text onPress={() => this.props.navigation.push('CharacterDetail', {url : rowData.url}) }>{rowData.name}</Text>
                 )}}
               />
               
